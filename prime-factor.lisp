@@ -5,7 +5,7 @@
     (if (null y) (setf y (- x 1)))
     (if (<  (mod x y) 1) y (lg-div x (decf y)))
   )
-;;; the loop macro is strange and feel out of place in lisp
+;;; the loop macro is strange and feels out of place in lisp
 ;;; yet it does allow some interesting things
   (loop 
     :with i = x
