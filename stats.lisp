@@ -4,7 +4,7 @@
 (defun mean (x)(* (/ (sum x) (length x)) 1.0)
 (defun mean-diff (x)(mapcar #'(lambda (u) (-  (mean x) u)) x))
 (defun ^2 (x) (expt x 2))
-(defun var (x) (/ (sum (mapcar #'^2 (mean-diff2 x))) (- (length x) 1.0)))
+(defun var (x) (/ (sum (mapcar #'^2 (mean-diff x))) (- (length x) 1.0)))
 (defun sd (x) (expt (var x) .5))
 (defun absdev ())
 (defun cv (x) (* 100 (/ (mean x) (sd x))))
