@@ -8,6 +8,11 @@
 (defun sd (x) (expt (var x) .5))
 (defun absdev ())
 (defun cv (x) (* 100 (/ (mean x) (sd x))))
+ (defun diff (x) (loop 
+  :for i from 0 to (- n 2)
+  :for j from 1 to (- n 1 )
+  :collect (- (elt x i)  (elt x j))))
+  
 (defun ssmd (X Y)
   (/
     (- (mean X) (mean Y))
