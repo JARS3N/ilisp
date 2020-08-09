@@ -1,2 +1,1 @@
-# ilisp
-scratch pad for lisp stuff
+I have no idea what I'm doing but I'm doing it in lisp/
