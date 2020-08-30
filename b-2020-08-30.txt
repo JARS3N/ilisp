@@ -1,0 +1,18 @@
+I find lexical scoping in Lisp to be strange. I'm used to assigning variables inside a function in R without worrying much,unless there was something declared outside the function and it somehow creeps into the function because there was a missing parameter. Here with Lisp I find it stranger, reading all the intos there was mention of using setf as the modern catchall of assignment but it turns out that setf assigns values to the global environment that is far from ideal and certain to cause errors. So if you're going to assign variables inside a function you really need to use let,for example:
+
+
+(defun random-function (x)
+  (Let ((y 345))
+       (+ y x)))
+       
+ so the variables defined in Let take a list of lists with the assignments followed by a form where they can be used. The only exist in the scope of the Let itself,which i find strange. I'm not sure if I like that to be honest, I can see where that might encourage writting more short functions but maybe that isn't such a bad thing/
+ 
+ One odd way around this,which I assume is generally not the acceptable in Lisp but is allowed to work,is nested functions:
+ 
+ (defun rand-fun (x)
+    (defun get-y () 345)
+    (+ x (get-y)))
+    
+ I'm sure that probably doesn't scale well if the variable needs to get called several times or maybe the compiler doesn't see the difference?
+ 
+ 
